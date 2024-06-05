@@ -1,9 +1,10 @@
 package br.edu.up.telas;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
+
 import br.edu.up.controles.Controlador;
 import br.edu.up.modelos.Veiculo;
-
 
 public class Totem {
     private Controlador controlador;
@@ -50,17 +51,15 @@ public class Totem {
         String tipo = scanner.nextLine();
         System.out.print("Digite a placa do veículo: ");
         String placa = scanner.nextLine();
-
-        // Registrar entrada usando o controlador
-        controlador.registrarEntrada(new Veiculo(tipo, placa));
+        LocalDateTime horaEntrada = LocalDateTime.now(); // Obtém a hora atual
+        controlador.registrarEntrada(new Veiculo(tipo, placa, horaEntrada));
     }
 
     private void registrarSaida() {
         System.out.print("Digite a placa do veículo: ");
         String placa = scanner.nextLine();
-
-        // Registrar saída usando o controlador
-        controlador.registrarSaida(placa, System.currentTimeMillis());
+        LocalDateTime horaSaida = LocalDateTime.now(); // Obtém a hora atual            
+        controlador.registrarSaida(placa, horaSaida);
     }
 
     private void gerenciarMensalista() {

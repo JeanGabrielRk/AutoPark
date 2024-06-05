@@ -1,6 +1,6 @@
-// Estacionamento.java
 package br.edu.up.modelos;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,26 +28,22 @@ public class Estacionamento {
         System.out.println("Não há vagas disponíveis.");
     }
 
-    public void registrarSaida(String placa, long horaSaida) {
+    public Veiculo registrarSaida(String placa, LocalDateTime horaSaida) {
         for (Veiculo veiculo : veiculosEstacionados) {
             if (veiculo.getPlaca().equals(placa)) {
                 veiculo.setHoraSaida(horaSaida);
-                vagasDisp[veiculo.getNumeroVaga()] = 1;
+                vagasDisp[veiculo.getNumeroVaga()] = 1; // Libera a vaga
                 veiculosEstacionados.remove(veiculo);
                 System.out.println("Veículo removido da vaga: " + veiculo.getNumeroVaga());
-                return;
+                return veiculo;
             }
         }
-        System.out.println("Veículo não encontrado.");
+        return null; // Veículo não encontrado
     }
 
     public float calcularPagamento(long permanencia) {
-        if (permanencia <= 15 * 60 * 1000) {
-            return 0;
-        } else if (permanencia <= 420 * 60 * 1000) {
-            return (float) Math.ceil(permanencia / (60 * 60 * 1000)) * vlrHora;
-        } else {
-            return 275;
-        }
+        // Calcula o valor total com base no tempo de permanência em horas
+        float valorAPagar = (float) permanencia * vlrHora;
+        return valorAPagar;
     }
 }

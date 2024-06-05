@@ -1,4 +1,3 @@
-// Controlador.java
 package br.edu.up.controles;
 
 import br.edu.up.daos.GerenciadorDeArquivos;
@@ -7,6 +6,7 @@ import br.edu.up.modelos.Mensalista;
 import br.edu.up.modelos.Veiculo;
 import br.edu.up.telas.Totem;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -34,7 +34,7 @@ public class Controlador {
         estacionamento.registrarEntrada(veiculo);
     }
 
-    public void registrarSaida(String placa, long horaSaida) {
+    public void registrarSaida(String placa, LocalDateTime horaSaida) {
         estacionamento.registrarSaida(placa, horaSaida);
     }
 

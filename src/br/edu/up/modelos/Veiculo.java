@@ -1,17 +1,19 @@
 package br.edu.up.modelos;
 
+import java.time.LocalDateTime;
+
 public class Veiculo {
 
     private String tipo;
     private String placa;
-    private long horaEntrada; // Usando long para armazenar tempo em milissegundos
-    private long horaSaida;
+    private LocalDateTime horaEntrada; 
+    private LocalDateTime horaSaida;
     private int numeroVaga;
 
-    public Veiculo(String tipo, String placa) {
+    public Veiculo(String tipo, String placa, LocalDateTime horaEntrada) {
         this.tipo = tipo;
         this.placa = placa;
-        this.horaEntrada = System.currentTimeMillis(); // Hora atual em milissegundos
+        this.horaEntrada = horaEntrada;
     }
 
     public String getTipo() {
@@ -22,20 +24,21 @@ public class Veiculo {
         return placa;
     }
 
-    public long getHoraEntrada() {
+    public LocalDateTime getHoraEntrada() {
         return horaEntrada;
     }
 
-    public long getHoraSaida() {
+    public LocalDateTime getHoraSaida() {
         return horaSaida;
     }
 
-    public void setHoraSaida(long horaSaida) {
+    public void setHoraSaida(LocalDateTime horaSaida) {
         this.horaSaida = horaSaida;
     }
 
     public long getTempoPermanencia() {
-        return horaSaida - horaEntrada;
+        // Calcula a diferença em horas entre a hora de saída e a hora de entrada
+        return java.time.Duration.between(horaEntrada, horaSaida).toHours();
     }
 
     public int getNumeroVaga() {
