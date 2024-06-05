@@ -1,0 +1,3 @@
+Saída: Moto, ABC134, Total: 0.0
+Saída: FERRARI, ABC456, Total: 0.0
+Saída: OPALA, ABC123, Hora: 1717594185985, Total: 0.0

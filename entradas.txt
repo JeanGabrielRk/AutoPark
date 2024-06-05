@@ -1,0 +1,4 @@
+Entrada: Carro, ABC123
+Entrada: Moto, ABC134
+Entrada: FERRARI, ABC456
+Entrada: OPALA, ABC123, Hora: 1717594172994
