@@ -2,6 +2,7 @@ package br.edu.up.telas;
 
 import java.util.Scanner;
 import br.edu.up.controles.Controlador;
+import br.edu.up.modelos.Veiculo;
 
 
 public class Totem {
@@ -51,7 +52,7 @@ public class Totem {
         String placa = scanner.nextLine();
 
         // Registrar entrada usando o controlador
-        controlador.registrarEntrada(tipo, placa);
+        controlador.registrarEntrada(new Veiculo(tipo, placa));
     }
 
     private void registrarSaida() {
@@ -59,7 +60,7 @@ public class Totem {
         String placa = scanner.nextLine();
 
         // Registrar saída usando o controlador
-        controlador.registrarSaida(placa);
+        controlador.registrarSaida(placa, System.currentTimeMillis());
     }
 
     private void gerenciarMensalista() {
