@@ -1,0 +1,4 @@
+Placa: SOL123, Hora de Entrada: 2024-06-06T09:16:18.947249800, Hora de Saída: 2024-06-06T09:16:32.039623100, Valor Total: 0.0, Tipo de Pagamento: 1
+Placa: 123ABC, Hora de Entrada: 2024-06-05T12:30, Hora de Saída: 2024-06-05T13:00, Valor Total: 0.0, Tipo de Pagamento: 1
+Placa: 001, Hora de Entrada: 2024-05-05T12:00, Hora de Saída: 2024-05-05T13:00, Valor Total: 10.0, Tipo de Pagamento: 1
+Placa: A001, Hora de Entrada: 2020-10-05T12:00, Hora de Saída: 2022-05-12T12:00, Valor Total: 140160.0, Tipo de Pagamento: 1

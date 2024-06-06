@@ -1,6 +1,7 @@
 package br.edu.up.telas;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import br.edu.up.controles.Controlador;
@@ -51,15 +52,25 @@ public class Totem {
         String tipo = scanner.nextLine();
         System.out.print("Digite a placa do veículo: ");
         String placa = scanner.nextLine();
-        LocalDateTime horaEntrada = LocalDateTime.now(); // Obtém a hora atual
+        // Solicitar a hora de entrada ao usuário
+        LocalDateTime horaEntrada = obterHoraManualmente();
         controlador.registrarEntrada(new Veiculo(tipo, placa, horaEntrada));
     }
 
     private void registrarSaida() {
         System.out.print("Digite a placa do veículo: ");
         String placa = scanner.nextLine();
-        LocalDateTime horaSaida = LocalDateTime.now(); // Obtém a hora atual            
+        // Solicitar a hora de saída ao usuário
+        LocalDateTime horaSaida = obterHoraManualmente();           
         controlador.registrarSaida(placa, horaSaida);
+    }
+
+    private LocalDateTime obterHoraManualmente() {
+        System.out.print("Digite a hora (formato: yyyy-MM-dd HH:mm:ss): ");
+        String horaStr = scanner.nextLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime hora = LocalDateTime.parse(horaStr, formatter);
+        return hora;
     }
 
     private void gerenciarMensalista() {
@@ -102,7 +113,6 @@ public class Totem {
     }
 
     private void listarMensalistas() {
-        // Listar mensalistas usando o controlador
         controlador.listarMensalistas();
     }
 }
