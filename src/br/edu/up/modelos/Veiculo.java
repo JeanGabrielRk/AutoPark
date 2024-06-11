@@ -37,7 +37,7 @@ public class Veiculo {
     }
 
     public long getTempoPermanencia() {
-        // Calcula a diferença em horas entre a hora de saída e a hora de entrada
+        
         return java.time.Duration.between(horaEntrada, horaSaida).toHours();
     }
 
